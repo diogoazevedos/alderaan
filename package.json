@@ -1,6 +1,6 @@
 {
   "name": "alderaan",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A bunch of common protocols",
   "main": "index.js",
   "dependencies": {
