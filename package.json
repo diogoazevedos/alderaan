@@ -1,0 +1,39 @@
+{
+  "name": "alderaan",
+  "version": "1.0.0",
+  "description": "A bunch of common protocols",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.17.0",
+    "ramda": "^0.23.0",
+    "ramda-fantasy": "^0.7.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.0",
+    "coveralls": "^2.11.0",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "knex": "^0.12.0",
+    "mysql": "^2.13.0",
+    "nyc": "^10.1.0"
+  },
+  "scripts": {
+    "cover": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc ava",
+    "lint": "eslint . --ext js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoazevedos/alderaan.git"
+  },
+  "keywords": [
+    "alderaan"
+  ],
+  "author": "Diogo Azevedo <diogoazevedos@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diogoazevedos/alderaan/issues"
+  },
+  "homepage": "https://github.com/diogoazevedos/alderaan#readme"
+}

@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - 7
+
+services:
+  - docker
+
+before_install:
+  - sudo service mysql stop
+  - >
+    docker run -d -p 3306:3306 -e MYSQL_DATABASE=aldeeran -e MYSQL_USER=alderaan
+    -e MYSQL_PASSWORD=secret -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+
+script: npm run lint && npm test
+after_success:
+  - npm run cover
+
+deploy:
+  provider: npm
+  api_key: $NPM_API_KEY
+  on:
+    tags: true
