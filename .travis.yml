@@ -8,7 +8,7 @@ services:
 before_install:
   - sudo service mysql stop
   - >
-    docker run -d -p 3306:3306 -e MYSQL_DATABASE=aldeeran -e MYSQL_USER=alderaan
+    docker run -d -p 3306:3306 -e MYSQL_DATABASE=alderaan -e MYSQL_USER=alderaan
     -e MYSQL_PASSWORD=secret -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
 
 script: npm run lint && npm test
