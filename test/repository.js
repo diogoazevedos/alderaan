@@ -31,7 +31,7 @@ test.serial('should not find a resource and return a nothing instance', t => (
     .then(unless(isNothing, t.fail))
 ));
 
-test.serial('should store and resource in storage', (t) => {
+test.serial('should store and return a resource in storage', (t) => {
   const model = new Model();
 
   return repository.create(db, model)
