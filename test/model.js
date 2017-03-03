@@ -38,7 +38,7 @@ test('should instantiate a model with database provided data', (t) => {
   t.deepEqual(model.attributes, attributes);
 });
 
-test('should throw an error when id is not a string', (t) => {
+test('should throw a type error when id is not a string', (t) => {
   try {
     new Model({ id: 'foo' });
   } catch (error) {
@@ -46,7 +46,7 @@ test('should throw an error when id is not a string', (t) => {
   }
 });
 
-test('should throw an error when createdAt is not a moment instance', (t) => {
+test('should throw a type error when createdAt is not a moment instance', (t) => {
   try {
     new Model({ createdAt: 'foo' });
   } catch (error) {
@@ -54,7 +54,7 @@ test('should throw an error when createdAt is not a moment instance', (t) => {
   }
 });
 
-test('should throw an error when updatedAt is not a moment instance', (t) => {
+test('should throw a type error when updatedAt is not a moment instance', (t) => {
   try {
     new Model({ updatedAt: 'foo' });
   } catch (error) {
