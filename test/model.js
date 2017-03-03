@@ -1,9 +1,8 @@
 /* eslint-disable no-new */
 
 import test from 'ava';
-import { utc } from 'moment';
+import { utc, isMoment } from 'moment';
 import Model from '../lib/model';
-import { isMoment } from '../lib/validator';
 
 test('should instantiate a model with user provided data', (t) => {
   const attributes = {
@@ -81,7 +80,7 @@ test('should instantiate a deleted model with database provided data', (t) => {
   t.deepEqual(model.attributes, attributes);
 });
 
-test('should throw an error when id is not a string', (t) => {
+test('should throw a type error when id is not a string', (t) => {
   try {
     new Model({ id: 'foo' });
   } catch (error) {
@@ -89,7 +88,7 @@ test('should throw an error when id is not a string', (t) => {
   }
 });
 
-test('should throw an error when createdAt is not a moment instance', (t) => {
+test('should throw a type error when createdAt is not a moment instance', (t) => {
   try {
     new Model({ createdAt: 'foo' });
   } catch (error) {
@@ -97,7 +96,7 @@ test('should throw an error when createdAt is not a moment instance', (t) => {
   }
 });
 
-test('should throw an error when updatedAt is not a moment instance', (t) => {
+test('should throw a type error when updatedAt is not a moment instance', (t) => {
   try {
     new Model({ updatedAt: 'foo' });
   } catch (error) {
