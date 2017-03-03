@@ -1,13 +1,12 @@
 import test from 'ava';
 import knex from 'knex';
 import { is, unless } from 'ramda';
-import { Maybe } from 'ramda-fantasy';
+import { isNothing, isJust } from 'sanctuary';
 import config from './fixtures/database';
 import Model from '../lib/model';
 import Repository from '../lib/repository';
 
 const db = knex(config);
-const { isNothing, isJust } = Maybe;
 const repository = new Repository('dogs', Model);
 
 test.beforeEach(() => (

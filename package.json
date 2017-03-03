@@ -1,12 +1,12 @@
 {
   "name": "alderaan",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A bunch of common protocols",
   "main": "index.js",
   "dependencies": {
     "moment": "^2.17.0",
     "ramda": "^0.23.0",
-    "ramda-fantasy": "^0.7.0"
+    "sanctuary": "^0.12.2"
   },
   "devDependencies": {
     "ava": "^0.18.0",
