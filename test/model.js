@@ -10,6 +10,7 @@ test('should instantiate a model with user provided data', (t) => {
     id: 20,
     createdAt: utc('2015-10-05 20:15:10'),
     updatedAt: utc('2015-10-05 10:15:20'),
+    deletedAt: null,
   };
 
   const model = new Model(attributes);
@@ -21,6 +22,28 @@ test('should instantiate a model with user provided data', (t) => {
     id: 20,
     created_at: '2015-10-05 20:15:10',
     updated_at: '2015-10-05 10:15:20',
+    deleted_at: null,
+  });
+});
+
+test('should instantiate a deleted model with user provided data', (t) => {
+  const attributes = {
+    id: 20,
+    createdAt: utc('2015-10-05 20:15:10'),
+    updatedAt: utc('2015-10-05 10:15:20'),
+    deletedAt: utc('2015-10-05 10:15:20'),
+  };
+
+  const model = new Model(attributes);
+
+  t.is(model.id, attributes.id);
+  t.true(isMoment(model.createdAt));
+  t.true(isMoment(model.updatedAt));
+  t.deepEqual(model.attributes, {
+    id: 20,
+    created_at: '2015-10-05 20:15:10',
+    updated_at: '2015-10-05 10:15:20',
+    deleted_at: '2015-10-05 10:15:20',
   });
 });
 
