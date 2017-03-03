@@ -7,8 +7,8 @@ import Model from '../lib/model';
 test('should instantiate a model with user provided data', (t) => {
   const attributes = {
     id: 20,
-    createdAt: utc('2015-10-05 20:15:10'),
-    updatedAt: utc('2015-10-05 10:15:20'),
+    createdAt: utc('2015-10-05 10:15:20'),
+    updatedAt: utc('2015-10-05 20:15:10'),
     deletedAt: null,
   };
 
