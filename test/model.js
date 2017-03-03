@@ -1,9 +1,8 @@
 /* eslint-disable no-new */
 
 import test from 'ava';
-import { utc } from 'moment';
+import { utc, isMoment } from 'moment';
 import Model from '../lib/model';
-import { isMoment } from '../lib/validator';
 
 test('should instantiate a model with user provided data', (t) => {
   const attributes = {
