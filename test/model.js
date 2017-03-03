@@ -7,8 +7,8 @@ import Model from '../lib/model';
 test('should instantiate a model with user provided data', (t) => {
   const attributes = {
     id: 20,
-    createdAt: utc('2015-10-05 20:15:10'),
-    updatedAt: utc('2015-10-05 10:15:20'),
+    createdAt: utc('2015-10-05 10:15:20'),
+    updatedAt: utc('2015-10-05 20:15:10'),
   };
 
   const model = new Model(attributes);
@@ -18,16 +18,16 @@ test('should instantiate a model with user provided data', (t) => {
   t.true(isMoment(model.updatedAt));
   t.deepEqual(model.attributes, {
     id: 20,
-    created_at: '2015-10-05 20:15:10',
-    updated_at: '2015-10-05 10:15:20',
+    created_at: '2015-10-05 10:15:20',
+    updated_at: '2015-10-05 20:15:10',
   });
 });
 
 test('should instantiate a model with database provided data', (t) => {
   const attributes = {
     id: 20,
-    created_at: '2015-10-05 20:15:10',
-    updated_at: '2015-10-05 10:15:20',
+    created_at: '2015-10-05 10:15:20',
+    updated_at: '2015-10-05 20:15:10',
   };
 
   const model = Model.of(attributes);
