@@ -36,3 +36,8 @@ test.serial('should store and return a resource in storage', (t) => {
   return repository.create(db, model)
     .then(unless(is(Model), t.fail));
 });
+
+test.serial('should delete a specific resource in storage', t => (
+  repository.destroy(db, 1)
+    .then(unless(is(Number), t.fail))
+));
