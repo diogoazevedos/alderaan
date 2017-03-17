@@ -46,6 +46,14 @@ test('should create a model with a database updated_at', (t) => {
   t.deepEqual(model.attributes, { updated_at: '2015-10-05 20:15:10' });
 });
 
+test('should get the attributes that have been changed', (t) => {
+  const model = Model.of({ id: 1, created_at: '2015-10-05 05:10:15' });
+
+  model.createdAt = utc('2015-10-05 20:15:10');
+
+  t.deepEqual(model.dirty, { created_at: '2015-10-05 20:15:10' });
+});
+
 test('should throw a type error when id is not a number', (t) => {
   try {
     new Model({ id: 'foo' });
