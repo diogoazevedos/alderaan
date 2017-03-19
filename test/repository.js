@@ -1,7 +1,8 @@
 import test from 'ava';
 import knex from 'knex';
+import { utc } from 'moment';
 import { is, unless } from 'ramda';
-import { isNothing, isJust } from 'sanctuary';
+import { isNothing, isJust, maybeToNullable } from 'sanctuary';
 import config from './fixtures/database';
 import Model from '../lib/model';
 import Repository from '../lib/repository';
@@ -35,6 +36,17 @@ test.serial('should store and return a resource in storage', (t) => {
 
   return repository.create(db, model)
     .then(unless(is(Model), t.fail));
+});
+
+test.serial('should update a specific resource in storage', async (t) => {
+  const maybe = await repository.find(db, 1);
+  const model = maybeToNullable(maybe);
+
+  model.createdAt = utc('2015-10-05T20:15:10Z');
+
+  const updated = await repository.update(db, model);
+
+  t.true(updated.createdAt.isSame(model.createdAt));
 });
 
 test.serial('should delete a specific resource in storage', t => (
